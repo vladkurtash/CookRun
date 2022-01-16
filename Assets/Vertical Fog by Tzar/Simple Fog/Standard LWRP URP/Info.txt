@@ -1,0 +1,5 @@
+This shader is supported in Standard RP, LWRP, Universal RP
+
+Basic use:
+1. Create a Plane - GameObject -> 3D Object -> Plane
+2. Create a new material, drag the Vertical Fog.shader on top of the material and then apply the material to the plane/object
