@@ -2,7 +2,6 @@
   "dependencies": {
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ide.vscode": "1.2.4",
-    "com.unity.inputsystem": "1.0.2",
     "com.unity.textmeshpro": "2.1.6",
     "com.unity.ugui": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
