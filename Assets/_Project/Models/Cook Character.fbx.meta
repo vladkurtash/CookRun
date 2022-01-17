@@ -27,7 +27,12 @@ ModelImporter:
   - first:
       74: -5818760468260572687
     second: HatJump|X3Hit
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 5baab2a0f716e664db541339f14ae13b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
