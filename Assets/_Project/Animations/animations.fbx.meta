@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: cde3974ed35069d4ab35b827e7fc2ab5
+guid: f954b0d55b3076743b7c80782471f88e
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: 8209644337410663953
     second: HatJump|Hit
+  - first:
+      74: -8994398500128650743
+    second: HatJump|Hit.001
   - first:
       74: 1420353347051642907
     second: HatJump|HoldBasket
@@ -19,44 +22,21 @@ ModelImporter:
       74: -3539095656336667224
     second: HatJump|RunHatJump
   - first:
+      74: 73385877994972046
+    second: HatJump|RunWithBasket
+  - first:
       74: -6485871739723649426
     second: HatJump|T-Pose
+  - first:
+      74: -3340750916821318852
+    second: HatJump|T-Pose.001
   - first:
       74: 5458842347412171372
     second: HatJump|X2Hit
   - first:
       74: -5818760468260572687
     second: HatJump|X3Hit
-  - first:
-      74: -1304387373167265313
-    second: Hit
-  - first:
-      74: -1576464900599410345
-    second: HoldBasket
-  - first:
-      74: -3100369314251171874
-    second: Idle
-  - first:
-      74: 5522812681064789136
-    second: Run
-  - first:
-      74: -8660617321372834454
-    second: RunHatJump
-  - first:
-      74: -8312538846858333772
-    second: T-Pose
-  - first:
-      74: -4234730831890909588
-    second: X2Hit
-  - first:
-      74: 6217732073331521256
-    second: X3Hit
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 5baab2a0f716e664db541339f14ae13b, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -76,7 +56,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -85,7 +65,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Hit
+      name: HatJump|Hit
       takeName: HatJump|Hit
       internalID: 0
       firstFrame: 0
@@ -96,8 +76,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -114,7 +94,36 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: HoldBasket
+      name: HatJump|Hit.001
+      takeName: HatJump|Hit.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 51
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: HatJump|HoldBasket
       takeName: HatJump|HoldBasket
       internalID: 0
       firstFrame: 0
@@ -125,7 +134,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -143,7 +152,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: HatJump|Idle
       takeName: HatJump|Idle
       internalID: 0
       firstFrame: 0
@@ -154,7 +163,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -172,7 +181,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run
+      name: HatJump|Run
       takeName: HatJump|Run
       internalID: 0
       firstFrame: 0
@@ -183,7 +192,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -201,8 +210,37 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: RunHatJump
+      name: HatJump|RunHatJump
       takeName: HatJump|RunHatJump
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: HatJump|RunWithBasket
+      takeName: HatJump|RunWithBasket
       internalID: 0
       firstFrame: 0
       lastFrame: 17
@@ -230,7 +268,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: T-Pose
+      name: HatJump|T-Pose
       takeName: HatJump|T-Pose
       internalID: 0
       firstFrame: 0
@@ -241,7 +279,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -259,7 +297,36 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: X2Hit
+      name: HatJump|T-Pose.001
+      takeName: HatJump|T-Pose.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: HatJump|X2Hit
       takeName: HatJump|X2Hit
       internalID: 0
       firstFrame: 0
@@ -270,7 +337,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -288,7 +355,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: X3Hit
+      name: HatJump|X3Hit
       takeName: HatJump|X3Hit
       internalID: 0
       firstFrame: 0
@@ -299,7 +366,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -325,9 +392,9 @@ ModelImporter:
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -369,7 +436,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
