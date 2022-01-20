@@ -1,0 +1,15 @@
+{
+    "name": "CookRun.Presenter",
+    "references": [
+        "GUID:6977036dd2bf85c45b3b771ab0b66dbf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
