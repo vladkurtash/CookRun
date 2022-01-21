@@ -1,6 +1,8 @@
 {
     "name": "CookRun.Model",
-    "references": [],
+    "references": [
+        "GUID:fa421ceb99bb43942afbdbd5dcd9d018"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
