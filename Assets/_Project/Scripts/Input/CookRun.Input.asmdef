@@ -1,7 +1,6 @@
 {
     "name": "CookRun.Input",
     "references": [
-        "GUID:6ad145fa45252dd47881e638d7af8871",
         "GUID:dcdb7e8c0ba1bc741837a2dcefdd900d",
         "GUID:6977036dd2bf85c45b3b771ab0b66dbf"
     ],
