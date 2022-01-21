@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 4265606335580478766, guid: 795c01ca15ff6174283fc2a3f499105f,
         type: 3}
       propertyPath: m_Name
-      value: '@Test'
+      value: '@Config'
       objectReference: {fileID: 0}
     - target: {fileID: 4265606335580478767, guid: 795c01ca15ff6174283fc2a3f499105f,
         type: 3}
