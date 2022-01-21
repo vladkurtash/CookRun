@@ -1,9 +1,8 @@
 {
-    "name": "CookRun.System",
+    "name": "CookRun.Systems",
     "references": [
         "GUID:22a92b99da408cf4a8ce6e07998f55b5",
         "GUID:fa421ceb99bb43942afbdbd5dcd9d018",
-        "GUID:6ad145fa45252dd47881e638d7af8871",
         "GUID:6977036dd2bf85c45b3b771ab0b66dbf"
     ],
     "includePlatforms": [],
