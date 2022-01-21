@@ -4,7 +4,7 @@ namespace CookRun.View
 {
     public abstract class AView : MonoBehaviour, IView
     {
-        private Transform _transform;
+        protected Transform _transform;
 
         private void Awake()
         {
@@ -26,6 +26,11 @@ namespace CookRun.View
         protected virtual void Setup()
         {
             _transform = gameObject.GetComponent<Transform>();
+        }
+
+        public virtual void Destroy()
+        {
+            Destroy(this.gameObject);
         }
     }
 }

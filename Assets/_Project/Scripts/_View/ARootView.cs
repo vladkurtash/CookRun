@@ -41,5 +41,12 @@ namespace CookRun.View
             Debug.LogError($"{typeof(ARootView)}: There is no {typeof(T)}");
             return null;
         }
+
+        public override void Destroy()
+        {
+            base.Destroy();
+            for (int i = 0; i < _views.Length; i++)
+                _views[i].Destroy();
+        }
     }
 }

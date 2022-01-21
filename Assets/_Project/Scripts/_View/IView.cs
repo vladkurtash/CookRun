@@ -13,6 +13,7 @@ namespace CookRun.View
         // void SetRotation(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f);
         void SetRotation(Vector3 rotation);
         // void SetRotation(float x = 0.0f, float y = 0.0f, float z = 0.0f);
+        void Destroy();
     }
 
     public interface ITriggerable
