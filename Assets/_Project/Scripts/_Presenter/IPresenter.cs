@@ -1,16 +1,6 @@
-namespace CookRun
+namespace CookRun.Presenter
 {
     public interface IPresenter
-    {
-        
-    }
-
-    public interface IUpdatable
-    {
-        
-    }
-
-    public interface IFixedUpdatable
     {
         
     }
