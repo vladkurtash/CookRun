@@ -9,15 +9,21 @@ namespace CookRun.Model
         void Destroy();
     }
 
-    public interface IMove
+    public interface IModelData
+    { }
+
+    public interface ITransformableData : IModelData
+    { }
+
+    public interface IMove : ITransformableData
     {
         Vector3 Position { get; }
-        event Action Moved; 
+        event Action Moved;
         void SetPosition(Vector3 position);
         void ApplyChangePosition(Vector3 position);
     }
 
-    public interface IRotate
+    public interface IRotate : ITransformableData
     {
         Vector3 Rotataion { get; }
         // Quaternion Rotataion { get; }
