@@ -11,17 +11,17 @@ namespace CookRun.Utility
         public float X
         {
             get => _value.x;
-            set { _value.x = value; OnValueChanged(); }
+            set { if (_value.x == value) return; _value.x = value; OnValueChanged(); }
         }
         public float Y
         {
             get => _value.y;
-            set { _value.y = value; OnValueChanged(); }
+            set { if (_value.y == value) return; _value.y = value; OnValueChanged(); }
         }
         public float Z
         {
             get => _value.z;
-            set { _value.z = value; OnValueChanged(); }
+            set { if (_value.z == value) return; _value.z = value; OnValueChanged(); }
         }
 
         public float this[int i]
