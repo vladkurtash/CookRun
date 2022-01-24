@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4265606335580478767}
   m_Layer: 0
-  m_Name: '@Test'
+  m_Name: '@Config'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
