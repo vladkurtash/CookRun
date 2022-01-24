@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CookRun.Systems
 {
     public abstract class AStandartMovementSystem<T, U> : AStandartSystem<T, U>, IStandartMovementSystem
-        where T : ISystemData
+        where T : IConfigData
         where U : ITransformableData
     {
         protected Vector3Variable _delta = null;
@@ -22,10 +22,10 @@ namespace CookRun.Systems
 
         public virtual void UpdateLocal(float deltaTime)
         {
-            PerformMovement();
+            PerformMovement(deltaTime);
         }
 
-        protected abstract void PerformMovement();
+        protected abstract void PerformMovement(float deltaTime);
     }
 
     public interface IStandartMovementSystem : IUpdatable

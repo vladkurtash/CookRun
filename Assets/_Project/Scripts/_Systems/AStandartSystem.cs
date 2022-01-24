@@ -3,7 +3,7 @@ using CookRun.Model;
 namespace CookRun.Systems
 {
     public abstract class AStandartSystem<T, U> : ISystem
-        where T : ISystemData
+        where T : IConfigData
         where U : IModelData
     {
         protected readonly T _systemData = default;
