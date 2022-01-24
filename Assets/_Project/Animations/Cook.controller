@@ -85,7 +85,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Lidle
+    m_Name: Idle
     m_StateMachine: {fileID: 1078595099943884195}
     m_Mask: {fileID: 31900000, guid: ee03a320de2449b4899a4415fffe4adc, type: 2}
     m_Motions: []
@@ -139,7 +139,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lidle
+  m_Name: Idle
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6667826138137301247}
