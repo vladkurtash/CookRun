@@ -6,12 +6,14 @@ using System;
 
 namespace CookRun.Presenter
 {
-    public abstract class APresenter : IPresenter
+    public abstract class APresenter<T, U> : IPresenter 
+        where T : IModel
+        where U : IRootView
     {
-        protected readonly IModel _model;
-        protected readonly IRootView _view;
+        protected readonly T _model;
+        protected readonly U _view;
         
-        public APresenter(IModel model, IRootView view)
+        public APresenter(T model, U view)
         {
             _model = model;
             _view = view;
