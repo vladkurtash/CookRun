@@ -21,4 +21,5 @@ MonoBehaviour:
     _follow:
       movementSpeed: 1
       positionOffset: {x: 0, y: 10, z: -9.44}
-      rotationSpeed: 0
+      rotation: {x: 30, y: 0, z: 0}
+      rotationSpeed: 1

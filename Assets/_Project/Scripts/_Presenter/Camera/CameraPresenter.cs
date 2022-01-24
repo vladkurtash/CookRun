@@ -17,8 +17,11 @@ namespace CookRun.Presenter
 
             _localState = State.Enable;
             _phase = Phase.Follow;
+        }
 
-            _positionOffset = _useInitValues ? _transform.position :
+        private void Start()
+        {
+            _positionOffset = _useInitValues ? _transform.position - Target.position :
                 ConfigData.Follow.positionOffset;
             _followRotation = _useInitValues ? _transform.localRotation :
                 Quaternion.Euler(ConfigData.Follow.rotation);
