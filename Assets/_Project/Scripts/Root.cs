@@ -8,6 +8,7 @@ using CookRun.Core;
 
 namespace CookRun
 {
+    [DefaultExecutionOrder(+1)]
     public class Root : MonoBehaviour
     {
         [SerializeField] private PlayerRootView playerRootView;
@@ -22,22 +23,8 @@ namespace CookRun
             slidingArea = FindObjectOfType<SlidingArea>();
             cameraPresenter = FindObjectOfType<CameraPresenter>();
 
-            var model = new PlayerModel(PlayerConfigDataSO.Instance.Data);
-            var moveSystem = new PlayerMoveSystem(PlayerMoveSystemDataSO.Instance.Data, model);
-            var rotateSystem = new PlayerRotateSystem(PlayerRotateSystemDataSO.Instance.Data, model);
-            var movementSystem = new PlayerMovementSystem(moveSystem, rotateSystem);
-
-            playerPresenter = new PlayerPresenter(model, playerRootView, movementSystem);
-
-            playerInputRouter = new PlayerInputRouter(slidingArea, movementSystem);
-
+            SetupPlayer();
             SetupMainCamera();
-        }
-
-        private void SetupMainCamera()
-        {
-            cameraPresenter.Target = playerRootView.transform;
-            cameraPresenter.ConfigData = CameraConfigDataSO.Instance.Data;
         }
 
         private void OnEnable()
@@ -46,9 +33,28 @@ namespace CookRun
             playerInputRouter.OnEnable();
         }
 
-        private void Start()
+        private void SetupPlayer()
         {
-            
+            var model = new PlayerModel(PlayerConfigDataSO.Instance.Data);
+            var playerMovementSystem = SetupPlayerMovementSystem(model);
+            playerPresenter = new PlayerPresenter(model, playerRootView, playerMovementSystem);
+
+            playerInputRouter = new PlayerInputRouter(slidingArea, playerMovementSystem);
+        }
+
+        private PlayerMovementSystem SetupPlayerMovementSystem(PlayerModel model)
+        {
+            var moveSystem = new PlayerMoveSystem(PlayerMoveSystemDataSO.Instance.Data, model);
+            var rotateSystem = new PlayerRotateSystem(PlayerRotateSystemDataSO.Instance.Data, model);
+            var movementSystem = new PlayerMovementSystem(moveSystem, rotateSystem);
+
+            return movementSystem;
+        }
+
+        private void SetupMainCamera()
+        {
+            cameraPresenter.Target = playerRootView.transform;
+            cameraPresenter.ConfigData = CameraConfigDataSO.Instance.Data;
         }
 
         private void OnDisable()
@@ -61,6 +67,11 @@ namespace CookRun
         {
             playerPresenter.UpdateLocal(Time.deltaTime);
             playerInputRouter.UpdateLocal(Time.deltaTime);
+        }
+
+        private void SetDefaultFrameRate()
+        {
+            //Application.targetFrameRate = Config.Instance.defaultFrameRate;
         }
     }
 }
