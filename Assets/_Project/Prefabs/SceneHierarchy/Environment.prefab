@@ -869,7 +869,6 @@ GameObject:
   - component: {fileID: 5813978640085008708}
   - component: {fileID: 918641339638254573}
   - component: {fileID: 5661685312428590012}
-  - component: {fileID: 310592943269477925}
   m_Layer: 0
   m_Name: Fog
   m_TagString: Untagged
@@ -938,20 +937,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &310592943269477925
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5793101771392470979}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5853462660726328272
 GameObject:
   m_ObjectHideFlags: 0
