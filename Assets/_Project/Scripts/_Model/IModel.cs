@@ -32,4 +32,9 @@ namespace CookRun.Model
         void ApplyChangeRotation(Vector3 rotation);
         void ApplyChangeRotation(float x = 0.0f, float y = 0.0f, float z = 0.0f);
     }
+
+    public interface IPlayerRotate : IRotate
+    {
+        float HorizontalRotationAxis { get; }
+    }
 }
