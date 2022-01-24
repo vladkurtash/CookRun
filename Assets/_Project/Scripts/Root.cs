@@ -12,6 +12,7 @@ namespace CookRun
     {
         [SerializeField] private PlayerRootView playerRootView;
         [SerializeField] private SlidingArea slidingArea;
+        [SerializeField] private CameraPresenter cameraPresenter;
         private PlayerPresenter playerPresenter = null;
         private PlayerInputRouter playerInputRouter = null;
 
@@ -19,6 +20,7 @@ namespace CookRun
         {
             playerRootView = FindObjectOfType<PlayerRootView>();
             slidingArea = FindObjectOfType<SlidingArea>();
+            cameraPresenter = FindObjectOfType<CameraPresenter>();
 
             var model = new PlayerModel(PlayerConfigDataSO.Instance.Data);
             var moveSystem = new PlayerMoveSystem(PlayerMoveSystemDataSO.Instance.Data, model);
@@ -28,6 +30,14 @@ namespace CookRun
             playerPresenter = new PlayerPresenter(model, playerRootView, movementSystem);
 
             playerInputRouter = new PlayerInputRouter(slidingArea, movementSystem);
+
+            SetupMainCamera();
+        }
+
+        private void SetupMainCamera()
+        {
+            cameraPresenter.Target = playerRootView.transform;
+            cameraPresenter.ConfigData = CameraConfigDataSO.Instance.Data;
         }
 
         private void OnEnable()
