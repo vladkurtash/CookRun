@@ -9,11 +9,11 @@ AnimatorOverrideController:
   m_Name: Cook
   m_Controller: {fileID: 9100000, guid: 3b3e6566db3c02d4ba3526107e54eadf, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: -1304387373167265313, guid: f954b0d55b3076743b7c80782471f88e,
-      type: 3}
-    m_OverrideClip: {fileID: -1304387373167265313, guid: f954b0d55b3076743b7c80782471f88e,
-      type: 3}
   - m_OriginalClip: {fileID: -6034729549398993232, guid: f954b0d55b3076743b7c80782471f88e,
       type: 3}
     m_OverrideClip: {fileID: -6034729549398993232, guid: f954b0d55b3076743b7c80782471f88e,
+      type: 3}
+  - m_OriginalClip: {fileID: 8451450650508321166, guid: 98d4e561213c1d34c927c98eba257dfe,
+      type: 3}
+    m_OverrideClip: {fileID: 8451450650508321166, guid: 98d4e561213c1d34c927c98eba257dfe,
       type: 3}
