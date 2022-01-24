@@ -4,15 +4,20 @@ using CookRun.Utility;
 
 namespace CookRun.Model
 {
-    public abstract class Transformable : IModel, IMove, IRotate
+    public interface IConfigurableSystem<T> where T : IConfigData
+    {
+
+    }
+
+    public abstract class ATransformable : IModel, IMove, IRotate
     {
         protected ObservableVector3 _position = null;
         protected ObservableVector3 _rotation = null;
 
-        public Transformable(ObservableVector3 position, ObservableVector3 rotation)
+        public ATransformable()
         {
-            _position = position;
-            _rotation = rotation;
+            _position = new ObservableVector3(Vector3.zero);
+            _rotation = new ObservableVector3(Vector3.zero);
 
             _position.ValueChanged += OnPositionChanged;
             _rotation.ValueChanged += OnRotationChanged;
@@ -25,8 +30,8 @@ namespace CookRun.Model
         public event Action Rotated;
         public event Action Destroying;
 
-        private void OnPositionChanged() => Moved?.Invoke();
-        private void OnRotationChanged() => Rotated?.Invoke();
+        protected virtual void OnPositionChanged() => Moved?.Invoke();
+        protected virtual void OnRotationChanged() => Rotated?.Invoke();
 
         public void ApplyChangePosition(Vector3 position)
         {
