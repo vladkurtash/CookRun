@@ -1,3 +1,4 @@
+using System;
 using CookRun.Core;
 using CookRun.Model;
 using UnityEngine;
@@ -11,6 +12,9 @@ namespace CookRun.Systems
         public PlayerMoveSystem(PlayerMoveSystemData systemData, IMove moveData) : base(systemData, moveData)
         { }
 
+        public event Action Moving;
+        public event Action Standing;
+
         public float HorizontalDelta { set; private get; }
 
         public override void Accelerate(float deltaTime) =>
@@ -23,6 +27,12 @@ namespace CookRun.Systems
         {
             MoveForward();
             MoveHorizontal();
+
+            if (Mathf.Approximately(_acceleration, 0.0f))
+                Standing?.Invoke();
+            else
+                Moving?.Invoke();
+
             _modelData.ApplyChangePosition(_delta.Value);
         }
 
@@ -38,6 +48,8 @@ namespace CookRun.Systems
 
     public interface IPlayerMoveSystem : IMoveSystem, IUpdatable
     {
+        event Action Moving;
+        event Action Standing;
         float HorizontalDelta { set; }
         void Accelerate(float deltaTime);
         void Decelerate(float deltaTime);

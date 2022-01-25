@@ -1,3 +1,4 @@
+using System;
 using CookRun.Core;
 
 namespace CookRun.Systems
@@ -14,6 +15,21 @@ namespace CookRun.Systems
         {
             _moveSystem = moveSystem;
             _rotateSystem = rotateSystem;
+            _moveSystem.Moving += OnMoving;
+            _moveSystem.Standing += OnStanding;
+        }
+
+        public event Action Moving;
+        public event Action Standing;
+
+        private void OnMoving()
+        {
+            Moving?.Invoke();
+        }
+
+        private void OnStanding()
+        {
+            Standing?.Invoke();
         }
 
         public void UpdateLocal(float deltaTime)
@@ -68,6 +84,7 @@ namespace CookRun.Systems
 
     public interface IMovementSystem : ISystem, IUpdatable
     {
-
+        event Action Moving;
+        event Action Standing;
     }
 }
