@@ -49,7 +49,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Right
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -61,7 +61,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8451450650508321166, guid: 98d4e561213c1d34c927c98eba257dfe,
+  m_Motion: {fileID: -1304387373167265313, guid: f954b0d55b3076743b7c80782471f88e,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -85,21 +85,9 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Idle
-    m_StateMachine: {fileID: 1078595099943884195}
-    m_Mask: {fileID: 31900000, guid: ee03a320de2449b4899a4415fffe4adc, type: 2}
-    m_Motions: []
-    m_Behaviours: []
-    m_BlendingMode: 0
-    m_SyncedLayerIndex: -1
-    m_DefaultWeight: 1
-    m_IKPass: 0
-    m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 9100000}
-  - serializedVersion: 5
-    m_Name: LeftHand
-    m_StateMachine: {fileID: 7172550872682224253}
-    m_Mask: {fileID: 31900000, guid: e04bfd3e189ac81438d22ad1fb4b2ac8, type: 2}
+    m_Name: Base Layer
+    m_StateMachine: {fileID: 4909493594076048604}
+    m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -114,6 +102,18 @@ AnimatorController:
     m_Mask: {fileID: 31900000, guid: 97847a538d2bf754c840adbe3c15f77e, type: 2}
     m_Motions: []
     m_Behaviours: []
+    m_BlendingMode: 1
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Idle
+    m_StateMachine: {fileID: 1078595099943884195}
+    m_Mask: {fileID: 31900000, guid: ee03a320de2449b4899a4415fffe4adc, type: 2}
+    m_Motions: []
+    m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
@@ -121,9 +121,9 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Base Layer
-    m_StateMachine: {fileID: 4909493594076048604}
-    m_Mask: {fileID: 31900000, guid: 9c39cab2ad9a83049950f5d38309fe7d, type: 2}
+    m_Name: LeftHand
+    m_StateMachine: {fileID: 7172550872682224253}
+    m_Mask: {fileID: 31900000, guid: e04bfd3e189ac81438d22ad1fb4b2ac8, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -180,7 +180,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1252137297140111524}
-    m_Position: {x: 30, y: 200, z: 0}
+    m_Position: {x: 30, y: 230, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
