@@ -5,7 +5,7 @@ namespace CookRun.Model
     public class ConfigDataSO<T> : SingletonScriptableObject<ConfigDataSO<T>>
         where T : IConfigData
     {
-        [SerializeField] private T _data;
+        [SerializeField] protected T _data;
 
         public ConfigDataSO(T data)
         {
