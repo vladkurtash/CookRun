@@ -37,7 +37,10 @@ namespace CookRun
         {
             var model = new PlayerModel(PlayerConfigDataSO.Instance.Data);
             var playerMovementSystem = SetupPlayerMovementSystem(model);
-            playerPresenter = new PlayerPresenter(model, playerRootView, playerMovementSystem);
+            PlayerAnimationSystemDataSO.Instance.Data.Setup();
+            var animationSystem = new PlayerAnimationSystem(PlayerAnimationSystemDataSO.Instance.Data, playerRootView.Animator);
+
+            playerPresenter = new PlayerPresenter(model, playerRootView, playerMovementSystem, animationSystem);
 
             playerInputRouter = new PlayerInputRouter(slidingArea, playerMovementSystem);
         }

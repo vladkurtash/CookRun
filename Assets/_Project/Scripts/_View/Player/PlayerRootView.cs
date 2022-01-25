@@ -6,15 +6,18 @@ namespace CookRun.View
     [RequireComponent(typeof(CharacterController))]
     public class PlayerRootView : ARootView, IPlayerRootView
     {
-        private CharacterController _characterController = null;
+        [SerializeField] private CharacterController _characterController = null;
+        [SerializeField] private Animator _animator = null;
 
         public PlayerLookView PlayerLookView => (PlayerLookView)GetView<PlayerLookView>();
         public PlayerKnifeView PlayerKnifeView => (PlayerKnifeView)GetView<PlayerKnifeView>();
+        public Animator Animator => _animator;
 
         protected override void Awake()
         {
             base.Awake();
             _characterController = GetComponent<CharacterController>();
+            _animator = _transform.GetComponentInChildren<Animator>();
         }
 
         public void Move(Vector3 destination)
@@ -33,6 +36,7 @@ namespace CookRun.View
     {
         PlayerLookView PlayerLookView { get; }
         PlayerKnifeView PlayerKnifeView { get; }
+        Animator Animator { get; }
         void Move(Vector3 motion);
         void Rotate(Vector3 rotation);
     }

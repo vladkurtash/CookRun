@@ -10,10 +10,12 @@ namespace CookRun.Presenter
     public class PlayerPresenter : APresenter<PlayerModel, PlayerRootView>, IPlayerPresenter
     {
         private readonly IMovementSystem _movementSystem;
+        private readonly IPlayerAnimationSystem _animationSystem;
 
-        public PlayerPresenter(PlayerModel model, PlayerRootView view, IMovementSystem movementSystem) : base(model, view)
+        public PlayerPresenter(PlayerModel model, PlayerRootView view, IMovementSystem movementSystem, IPlayerAnimationSystem animationSystem) : base(model, view)
         {
             _movementSystem = movementSystem;
+            _animationSystem = animationSystem;
             SyncModelWithView();
         }
 
@@ -35,6 +37,8 @@ namespace CookRun.Presenter
             base.OnEnable();
             _model.Moved += OnMoved;
             _model.Rotated += OnRotated;
+            _movementSystem.Standing += _animationSystem.Stand;
+            _movementSystem.Moving += _animationSystem.Run;
         }
 
         public override void OnDisable()
@@ -42,6 +46,8 @@ namespace CookRun.Presenter
             base.OnDisable();
             _model.Moved -= OnMoved;
             _model.Rotated -= OnRotated;
+            _movementSystem.Standing -= _animationSystem.Stand;
+            _movementSystem.Moving -= _animationSystem.Run;
         }
 
         public override void UpdateLocal(float deltaTime)
