@@ -18,16 +18,16 @@ namespace CookRun.View
 
     public interface ITriggerable
     {
-        event Action<Collider> OnTriggerEnter;
+        event Action<Collider> TriggerEnter;
     }
 
     public interface ICollisionable
     {
-        event Action<Collision> OnCollisionEnter;
+        event Action<Collision> CollisionEnter;
     }
 
     public interface IRaycastable
     {
-        event Action<RaycastHit> OnRaycastHit;
+        event Action<RaycastHit> RaycastHit;
     }
 }
