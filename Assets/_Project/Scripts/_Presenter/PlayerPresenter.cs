@@ -4,6 +4,7 @@ using CookRun.View;
 using CookRun.Core;
 using System;
 using UnityEngine;
+using CookRun.Component.SliceableObject;
 
 namespace CookRun.Presenter
 {
@@ -39,6 +40,7 @@ namespace CookRun.Presenter
             _model.Rotated += OnRotated;
             _movementSystem.Standing += _animationSystem.Stand;
             _movementSystem.Moving += _animationSystem.Run;
+            _view.KnifeView.TriggerEnter += OnKnifeTriggerEnterReact;
         }
 
         public override void OnDisable()
@@ -48,6 +50,7 @@ namespace CookRun.Presenter
             _model.Rotated -= OnRotated;
             _movementSystem.Standing -= _animationSystem.Stand;
             _movementSystem.Moving -= _animationSystem.Run;
+            _view.KnifeView.TriggerEnter -= OnKnifeTriggerEnterReact;
         }
 
         public override void UpdateLocal(float deltaTime)
@@ -63,6 +66,20 @@ namespace CookRun.Presenter
         public void OnRotated()
         {
             _view.Rotate(_model.Rotataion);
+        }
+
+        private void OnKnifeTriggerEnterReact(Collider collider)
+        {
+            int inputLayer = collider.gameObject.layer;
+
+            if (inputLayer == (int)Layer.Sliceable)
+                Slice(collider);
+        }
+
+        private void Slice(Collider collider)
+        {
+            var slicable = collider.gameObject.GetComponent<ISliceable>();
+            slicable?.Slice(_view.KnifeView.Position, _view.KnifeView.transform.up);
         }
     }
 
