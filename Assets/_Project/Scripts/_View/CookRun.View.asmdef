@@ -1,6 +1,8 @@
 {
     "name": "CookRun.View",
-    "references": [],
+    "references": [
+        "GUID:9e0f1207f627e8e48accc1395be2e20d"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [
         "GameCoreXboxOne"
