@@ -1,0 +1,16 @@
+{
+    "name": "CookRun.Component.SliceableObject",
+    "references": [
+        "GUID:f5ea057a77225164c85a0d67139a1159",
+        "GUID:9e0f1207f627e8e48accc1395be2e20d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
