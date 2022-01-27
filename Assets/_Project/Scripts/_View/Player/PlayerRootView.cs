@@ -9,8 +9,8 @@ namespace CookRun.View
         [SerializeField] private CharacterController _characterController = null;
         [SerializeField] private Animator _animator = null;
 
-        public PlayerLookView PlayerLookView => (PlayerLookView)GetView<PlayerLookView>();
-        public PlayerKnifeView PlayerKnifeView => (PlayerKnifeView)GetView<PlayerKnifeView>();
+        public PlayerLookView LookView => (PlayerLookView)GetView<PlayerLookView>();
+        public PlayerKnifeView KnifeView => (PlayerKnifeView)GetView<PlayerKnifeView>();
         public Animator Animator => _animator;
 
         protected override void Awake()
@@ -34,8 +34,8 @@ namespace CookRun.View
 
     public interface IPlayerRootView
     {
-        PlayerLookView PlayerLookView { get; }
-        PlayerKnifeView PlayerKnifeView { get; }
+        PlayerLookView LookView { get; }
+        PlayerKnifeView KnifeView { get; }
         Animator Animator { get; }
         void Move(Vector3 motion);
         void Rotate(Vector3 rotation);

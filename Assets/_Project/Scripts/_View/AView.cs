@@ -8,24 +8,25 @@ namespace CookRun.View
 
         private void Awake()
         {
+            _transform = GetComponent<Transform>();
             Setup();
         }
 
-        public Vector3 Position => _transform.localPosition;
+        public Vector3 Position => transform.localPosition;
         public Quaternion Rotation => _transform.localRotation;
 
         public void SetPosition(Vector3 position) =>
-            _transform.position = position;
+            _transform.localPosition = position;
 
         public void SetRotation(Quaternion rotation) =>
-            _transform.rotation = rotation;
+            _transform.localRotation = rotation;
 
         public void SetRotation(Vector3 rotation) =>
-            _transform.rotation = Quaternion.Euler(rotation);
+            _transform.localRotation = Quaternion.Euler(rotation);
 
         protected virtual void Setup()
         {
-            _transform = gameObject.GetComponent<Transform>();
+            _transform = GetComponent<Transform>();
         }
 
         public virtual void Destroy()
