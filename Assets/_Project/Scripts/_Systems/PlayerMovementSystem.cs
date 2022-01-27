@@ -73,6 +73,11 @@ namespace CookRun.Systems
             _moveSystem.Stop();
             _rotateSystem.Stop();
         }
+
+        public void Align(float deltaTime)
+        {
+            _rotateSystem.Align(deltaTime);
+        }
     }
 
     public interface IPlayerMovementSystem : IMovementSystem
@@ -80,6 +85,7 @@ namespace CookRun.Systems
         void Accelerate(float deltaTime);
         void Decelerate(float deltaTime);
         void SetHorizontalDelta(float delta);
+        void Align(float deltaTime);
     }
 
     public interface IMovementSystem : ISystem, IUpdatable

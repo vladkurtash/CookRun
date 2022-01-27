@@ -27,18 +27,17 @@ namespace CookRun.Input
 
         public void UpdateLocal(float deltaTime)
         {
-            if(_localState == State.Disable)
+            if (_localState == State.Disable)
                 return;
 
             // if slidingArea gameObject is pressing 
             if (_slidingArea.PointerActive)
-            {
                 _movementSystem.Accelerate(deltaTime);
-            }
             else
-            {
                 _movementSystem.Decelerate(deltaTime);
-            }
+
+            if (Mathf.Approximately(_slidingArea.PointerDelta.x, 0.0f))
+                _movementSystem.Align(deltaTime);
 
             _movementSystem.SetHorizontalDelta(_slidingArea.PointerDelta.x);
         }

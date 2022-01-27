@@ -31,8 +31,6 @@ namespace CookRun.Systems
         {
             if (InputHorizontalDelta())
                 DoHorizontalRotation();
-            else
-                Align(deltaTime);
         }
 
         public void Align(float deltaTime)
