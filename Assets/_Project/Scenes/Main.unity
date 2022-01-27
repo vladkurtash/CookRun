@@ -277,6 +277,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 91343611, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158400159, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 260809656, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 846756160, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224907799, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278397844, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326597152, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564250714, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650603399, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839727745, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945525693, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7422571214421857496, guid: 15a9c20e41b67324bba650cf7706fd54,
         type: 3}
       propertyPath: m_RootOrder
@@ -336,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038175082414006052, guid: 15a9c20e41b67324bba650cf7706fd54,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
