@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerMoveSystemData
   m_EditorClassIdentifier: 
   _data:
-    speedForwardMax: 0
+    speedForwardMax: 0.15
     speedHorizontalMax: 20
     accelerationTime: 1
     decelerationTime: 1

@@ -41,6 +41,7 @@ namespace CookRun.Presenter
             _movementSystem.Standing += _animationSystem.Stand;
             _movementSystem.Moving += _animationSystem.Run;
             _view.KnifeView.TriggerEnter += OnKnifeTriggerEnterReact;
+            _view.LookView.RaycastHit += OnLookRaycastHitReact;
         }
 
         public override void OnDisable()
@@ -51,6 +52,7 @@ namespace CookRun.Presenter
             _movementSystem.Standing -= _animationSystem.Stand;
             _movementSystem.Moving -= _animationSystem.Run;
             _view.KnifeView.TriggerEnter -= OnKnifeTriggerEnterReact;
+            _view.LookView.RaycastHit -= OnLookRaycastHitReact;
         }
 
         public override void UpdateLocal(float deltaTime)
@@ -70,16 +72,29 @@ namespace CookRun.Presenter
 
         private void OnKnifeTriggerEnterReact(Collider collider)
         {
-            int inputLayer = collider.gameObject.layer;
+            // int inputLayer = collider.gameObject.layer;
 
-            if (inputLayer == (int)Layer.Sliceable)
-                Slice(collider);
+            // if (inputLayer == (int)Layer.Sliceable)
+            //     Slice(collider);
         }
 
-        private void Slice(Collider collider)
+        private void SliceObject(Collider collider)
         {
             var slicable = collider.gameObject.GetComponent<ISliceable>();
             slicable?.Slice(_view.KnifeView.Position, _view.KnifeView.transform.up);
+        }
+
+        private void OnLookRaycastHitReact(RaycastHit raycastHit)
+        {
+            int inputLayer = raycastHit.collider.gameObject.layer;
+            float hitDistance = PlayerConfigDataSO.Instance.Data.hitDistance;
+
+            if (inputLayer == (int)Layer.Sliceable && raycastHit.distance <= hitDistance)
+            {
+                _animationSystem.Hit();
+                if(raycastHit.distance <= hitDistance / 2)
+                    SliceObject(raycastHit.collider);
+            }
         }
     }
 

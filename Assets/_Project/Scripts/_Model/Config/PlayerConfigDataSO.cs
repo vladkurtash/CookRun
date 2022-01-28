@@ -15,5 +15,7 @@ namespace CookRun.Model
     {
         public Vector2 horizontalPositionThreshold = Vector2.zero;
         public Vector2 horizontalRotationThreshold = Vector2.zero;
+        public float sightDistance = 1.0f;
+        public float hitDistance = 0.5f;
     }
 }

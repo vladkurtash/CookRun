@@ -13,9 +13,9 @@ namespace CookRun.View
         public PlayerKnifeView KnifeView => (PlayerKnifeView)GetView<PlayerKnifeView>();
         public Animator Animator => _animator;
 
-        protected override void Awake()
+        protected override void Setup()
         {
-            base.Awake();
+            base.Setup();
             _characterController = GetComponent<CharacterController>();
             _animator = _transform.GetComponentInChildren<Animator>();
         }

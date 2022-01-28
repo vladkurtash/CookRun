@@ -20,7 +20,7 @@ namespace CookRun.Model
                     }
                     else if (assets.Length > 1)
                     {
-                        Debug.LogWarning($"{typeof(T)}: Multiple instances is founded in the Recources. Returned first founded.");
+                        Debug.LogWarning($"{typeof(T)}: Multiple instances is found in the Recources. Returned first found.");
                     }
 
                     _instance = assets[0];
