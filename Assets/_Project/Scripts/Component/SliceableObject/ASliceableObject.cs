@@ -1,22 +1,28 @@
 using UnityEngine;
 using EzySlice;
 using System;
+using CookRun.Utility.Audio;
 
 namespace CookRun.Component.SliceableObject
 {
-    [RequireComponent(typeof(Rigidbody), typeof(Collider))]
+    [RequireComponent(typeof(Collider))]
     public abstract class ASliceableObject : AComponent, ISliceable, ISoundable
     {
-        [SerializeField] protected int objectLayer = 0; 
-        [SerializeField] protected int cutOffPartLayer = 0; 
+        [Header("FX")]
         [SerializeField] protected Material crossSectionMaterial = null;
-        [SerializeField] protected AudioClip audioClip = null;
+        [SerializeField] protected AudioClip[] audioClip = null;
         [SerializeField] protected GameObject sliceEffect = null;
-        protected IDecalPlacer decalPlacer = null;
+        protected IDecalPlacer _decalPlacer = null;
+
+        [Header("CutOff Parts Slice Force")]
         [SerializeField] protected bool addForceToParts = true;
         [Tooltip("X - min value; Y - max value")]
         [SerializeField] protected Vector2 force = Vector2.one;
+
+        [Header("Other")]
         [SerializeField] protected DynamicPart dynamicPart = DynamicPart.Both;
+        [SerializeField] protected int objectLayer = 0; 
+        [SerializeField] protected int cutOffPartLayer = 0; 
 
         protected enum DynamicPart
         {
@@ -28,7 +34,8 @@ namespace CookRun.Component.SliceableObject
 
         protected virtual void Awake()
         {
-            decalPlacer = GetComponent<IDecalPlacer>();
+            _decalPlacer = GetComponent<IDecalPlacer>();
+            gameObject.layer = objectLayer;
         }
 
         public virtual void Slice(Vector3 position, Vector3 direction)
@@ -103,8 +110,12 @@ namespace CookRun.Component.SliceableObject
 
         public virtual void MakeSound()
         {
-            if (audioClip == null)
+            if (audioClip == null || audioClip.Length < 1)
                 return;
+
+            int randomIndex = UnityEngine.Random.Range(0, audioClip.Length - 1);
+            AudioClip clip = audioClip[randomIndex];
+            AudioPlayer.PlayClipAtPoint(clip, transform.position);
         }
 
         protected virtual GameObject SpawnSliceEffect()
@@ -119,7 +130,7 @@ namespace CookRun.Component.SliceableObject
 
         public virtual void PlaceDecal()
         {
-            decalPlacer?.PlaceDecalOnHitPoint();
+            _decalPlacer?.PlaceDecalOnHitPoint();
         }
     }
 }
