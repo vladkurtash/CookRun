@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9130442970966841250}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9130442970351117043}
@@ -146,7 +146,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -199,8 +199,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 4
+      scalar: 10
+      minScalar: 7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -253,7 +253,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7643615, g: 1, b: 0.37254906, a: 1}
+      maxColor: {r: 1, g: 0.85970855, b: 0.41176474, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.9528302, g: 0.06741722, b: 0.06741722, a: 1}
@@ -315,7 +315,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
+      scalar: 0.5
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -1006,7 +1006,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1079,7 +1079,7 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.26099104
         - serializedVersion: 3
-          time: 0.5488744
+          time: 0.32612658
           value: 1
           inSlope: 0.066301785
           outSlope: 0.066301785
@@ -1418,7 +1418,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 38550
+        atime1: 53585
         atime2: 65535
         atime3: 65535
         atime4: 0
@@ -1578,20 +1578,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 7209622655568544861, guid: e000c5656d2b0f34ab4dc47e8837e5d2,
-        type: 3}
-    - sprite: {fileID: -9015287279968768310, guid: e000c5656d2b0f34ab4dc47e8837e5d2,
-        type: 3}
-    - sprite: {fileID: 6870744000029455657, guid: e000c5656d2b0f34ab4dc47e8837e5d2,
-        type: 3}
-    - sprite: {fileID: 3538785334180038776, guid: e000c5656d2b0f34ab4dc47e8837e5d2,
-        type: 3}
-    - sprite: {fileID: -1629924116304457530, guid: e000c5656d2b0f34ab4dc47e8837e5d2,
-        type: 3}
-    - sprite: {fileID: 9220086067365940476, guid: e000c5656d2b0f34ab4dc47e8837e5d2,
-        type: 3}
-    - sprite: {fileID: 8612010029636649879, guid: e000c5656d2b0f34ab4dc47e8837e5d2,
-        type: 3}
+    - sprite: {fileID: 21300000, guid: 08a0d86b54dcfdc46a963084734e7983, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -3273,7 +3260,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -3330,7 +3317,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3339,16 +3326,16 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
+          time: 0.9573458
           value: 1
           inSlope: 1
-          outSlope: 0
+          outSlope: 1
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -3433,7 +3420,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    range: {x: 0, y: 1}
+    range: {x: 0, y: 0.1}
     separateAxes: 0
   RotationBySpeedModule:
     enabled: 0
@@ -4859,7 +4846,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
