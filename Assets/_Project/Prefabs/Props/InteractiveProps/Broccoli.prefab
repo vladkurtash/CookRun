@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe73253f4ca1cc64fad86bb82294f6c0, type: 2}
+  - {fileID: 2100000, guid: 97b60322540edee469aaf74b15123eb8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   objectLayer: 9
   cutOffPartLayer: 12
   sliceDirection:
-  - {x: 0.5, y: 0, z: 0}
-  - {x: 1, y: 1, z: 0}
+  - {x: 1, y: 0.1, z: 0}
+  - {x: 1, y: 0, z: 0}
 --- !u!114 &88751926672788771
 MonoBehaviour:
   m_ObjectHideFlags: 0

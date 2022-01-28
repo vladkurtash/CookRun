@@ -122,8 +122,8 @@ MonoBehaviour:
   objectLayer: 9
   cutOffPartLayer: 12
   sliceDirection:
-  - {x: 0.5, y: 0, z: 0}
-  - {x: 1, y: 1, z: 0}
+  - {x: 1, y: 0.1, z: 0}
+  - {x: 1, y: 0, z: 0}
 --- !u!114 &6013053038865968284
 MonoBehaviour:
   m_ObjectHideFlags: 0

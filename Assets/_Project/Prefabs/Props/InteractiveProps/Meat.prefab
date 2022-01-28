@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6356371854166305496}
   - component: {fileID: 6100969698040726213}
   - component: {fileID: 5762721575169518232}
-  - component: {fileID: 3722061930279963603}
   - component: {fileID: 3722061930279963602}
   - component: {fileID: 3722061930279963601}
   - component: {fileID: 3722061930279963600}
+  - component: {fileID: 1606523787260595175}
   m_Layer: 0
   m_Name: Meat
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &3722061930279963603
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3722061930279963607}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.57032764
-  m_Height: 1.7022709
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8416447, z: 0}
 --- !u!114 &3722061930279963602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,8 +108,8 @@ MonoBehaviour:
   objectLayer: 9
   cutOffPartLayer: 12
   sliceDirection:
-  - {x: 0.5, y: 0, z: 0}
-  - {x: 1, y: 1, z: 0}
+  - {x: 1, y: 0.1, z: 0}
+  - {x: 1, y: 0, z: 0}
 --- !u!114 &3722061930279963601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,3 +145,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0.1, y: 1, z: 0.1}
   _speed: 50
+--- !u!65 &1606523787260595175
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722061930279963607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28466907, y: 1.7022709, z: 1.140655}
+  m_Center: {x: 0, y: 0.8416447, z: 0}

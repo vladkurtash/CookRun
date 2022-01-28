@@ -93,10 +93,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2621308
-  m_Height: 1.9755512
+  m_Radius: 0.38889188
+  m_Height: 1.9755514
   m_Direction: 1
-  m_Center: {x: -0.00041875243, y: 0.9898754, z: 0.0066113174}
+  m_Center: {x: -0.00041874746, y: 0.9898754, z: 0.0038022795}
 --- !u!114 &9125767345243269112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   objectLayer: 9
   cutOffPartLayer: 12
   sliceDirection:
-  - {x: 0.5, y: 0, z: 0}
-  - {x: 1, y: 1, z: 0}
+  - {x: 1, y: 0.1, z: 0}
+  - {x: 1, y: 0, z: 0}
 --- !u!114 &9125767345243269111
 MonoBehaviour:
   m_ObjectHideFlags: 0
