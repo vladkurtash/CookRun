@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using CookRun.Model;
 
 namespace CookRun.View
 {
     public interface IView
     {
+        void Setup(IConfigData configData);
         Vector3 Position { get; }
         Quaternion Rotation { get; }
         void SetPosition(Vector3 position);

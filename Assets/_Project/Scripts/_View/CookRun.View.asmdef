@@ -1,7 +1,8 @@
 {
     "name": "CookRun.View",
     "references": [
-        "GUID:9e0f1207f627e8e48accc1395be2e20d"
+        "GUID:9e0f1207f627e8e48accc1395be2e20d",
+        "GUID:22a92b99da408cf4a8ce6e07998f55b5"
     ],
     "includePlatforms": [],
     "excludePlatforms": [

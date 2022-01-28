@@ -1,3 +1,4 @@
+using CookRun.Model;
 using UnityEngine;
 
 namespace CookRun.View
@@ -8,7 +9,6 @@ namespace CookRun.View
 
         private void Awake()
         {
-            _transform = GetComponent<Transform>();
             Setup();
         }
 
@@ -32,6 +32,11 @@ namespace CookRun.View
         public virtual void Destroy()
         {
             Destroy(this.gameObject);
+        }
+
+        public void Setup(IConfigData configData)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
