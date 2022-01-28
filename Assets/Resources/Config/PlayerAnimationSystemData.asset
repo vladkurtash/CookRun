@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _parameters:
-      idleString: 
-      runString: 
-      hitString: 
-      dieString: 
-      danceString: 
-      idleHash: 0
-      runHash: 0
-      hitHash: 0
-      dieHash: 0
-      danceHash: 0
+      idleString: Idle
+      runString: Run
+      hitString: Hit
+      dieString: Die
+      danceString: Dance
+      idleHash: 2081823275
+      runHash: 1748754976
+      hitHash: 1654612129
+      dieHash: 20298039
+      danceHash: -645213589
