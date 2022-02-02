@@ -1,19 +1,25 @@
 using UnityEngine;
 using CookRun.Systems;
-using CookRun.Core;
+using CookRun.Model;
 
 namespace CookRun.Input
 {
     public class PlayerInputRouter : IInputRouter
     {
         private readonly ISlidingArea _slidingArea = null;
-        private readonly IPlayerMovementSystem _movementSystem = null;
+        private readonly IPlayerMoveSystem _moveSystem = null;
+        private readonly IPlayerRotateSystem _rotateSystem = null;
+        private readonly PlayerConfigData _configData = null;
         private State _localState = State.Disable;
 
-        public PlayerInputRouter(ISlidingArea slidingArea, IPlayerMovementSystem movementSystem)
+        public PlayerInputRouter
+            (ISlidingArea slidingArea, IPlayerMoveSystem moveSystem, 
+            IPlayerRotateSystem rotateSystem, PlayerConfigData configData)
         {
             _slidingArea = slidingArea;
-            _movementSystem = movementSystem;
+            _moveSystem = moveSystem;
+            _rotateSystem = rotateSystem;
+            _configData = configData;
         }
 
         enum State
@@ -32,14 +38,23 @@ namespace CookRun.Input
 
             // if slidingArea gameObject is pressing 
             if (_slidingArea.PointerActive)
-                _movementSystem.Accelerate(deltaTime);
+            {
+                _moveSystem.Accelerate(deltaTime);
+                _rotateSystem.Accelerate(deltaTime);
+            }
             else
-                _movementSystem.Decelerate(deltaTime);
-
-            if (Mathf.Approximately(_slidingArea.PointerDelta.x, 0.0f))
-                _movementSystem.Align(deltaTime);
-
-            _movementSystem.SetHorizontalDelta(_slidingArea.PointerDelta.x);
+            {
+                _moveSystem.Decelerate(deltaTime);
+                _rotateSystem.Decelerate(deltaTime);
+            }
+            if (_slidingArea.PointerDelta.x == 0.0f)
+            {
+                _rotateSystem.Align(deltaTime);
+            }
+                
+            float delta = _slidingArea.PointerDelta.x;
+            _moveSystem.MoveHorizontal(delta * _configData.moveSensivity);
+            _rotateSystem.Rotate(delta * _configData.rotateSensivity);
         }
     }
 }

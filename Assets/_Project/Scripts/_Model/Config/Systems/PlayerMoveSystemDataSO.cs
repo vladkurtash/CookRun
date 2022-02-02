@@ -13,9 +13,9 @@ namespace CookRun.Model
     [Serializable]
     public class PlayerMoveSystemData : IConfigData
     {
-        public float speedForwardMax = 1.0f;
-        public float speedHorizontalMax = 1.0f;
-        public float accelerationTime = 1.0f;
-        public float decelerationTime = 1.0f;
+        public float speedForwardMax = 0.0f;
+        public float speedHorizontalMax = 0.0f;
+        public float accelerationTime = 0.0f;
+        public float decelerationTime = 0.0f;
     }
 }

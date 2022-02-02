@@ -13,6 +13,7 @@ namespace CookRun.Model
     [Serializable]
     public class PlayerRotateSystemData : IConfigData
     {
+        public float defaultYThreshold = 60.0f;
         public float rotateSpeedMax = 1.0f;
         public float alignmentTime = 1.0f;
         public float accelerationTime = 1.0f;

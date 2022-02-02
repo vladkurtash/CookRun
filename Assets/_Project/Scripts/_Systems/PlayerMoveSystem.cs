@@ -8,14 +8,15 @@ namespace CookRun.Systems
     public class PlayerMoveSystem : AStandartMovementSystem<PlayerMoveSystemData, IMove>, IPlayerMoveSystem
     {
         private float _acceleration = 0.0f;
+        private float _forwardSpeedMax = 0.0f;
 
         public PlayerMoveSystem(PlayerMoveSystemData systemData, IMove moveData) : base(systemData, moveData)
-        { }
+        {
+            _forwardSpeedMax = systemData.speedForwardMax;
+        }
 
         public event Action Moving;
         public event Action Standing;
-
-        public float HorizontalDelta { set; private get; }
 
         public override void Accelerate(float deltaTime) =>
             ApplyChangeMaxSpeedPercentage(deltaTime / _systemData.accelerationTime);
@@ -26,7 +27,6 @@ namespace CookRun.Systems
         protected override void PerformMovement(float deltaTime)
         {
             MoveForward();
-            MoveHorizontal();
 
             if (Mathf.Approximately(_acceleration, 0.0f))
                 Standing?.Invoke();
@@ -34,24 +34,32 @@ namespace CookRun.Systems
                 Moving?.Invoke();
 
             _modelData.ApplyChangePosition(_delta.Value);
+            _delta.Value = Vector3.zero;
         }
 
         private void MoveForward() =>
-            _delta.Z = _systemData.speedForwardMax * _acceleration;
+            _delta.Z = _forwardSpeedMax * _acceleration;
 
-        private void MoveHorizontal() =>
-            _delta.X = _systemData.speedHorizontalMax * _acceleration * HorizontalDelta;
+        public void MoveHorizontal(float delta)
+        {
+            if (delta != 0.0f)
+                _delta.X = _acceleration * delta;
+        }
 
         private void ApplyChangeMaxSpeedPercentage(float value) =>
             _acceleration = Mathf.Clamp(_acceleration + value, 0.0f, 1.0f);
+
+        public void SetAcceleration(float acceleraion) => _acceleration = Mathf.Clamp01(acceleraion);
+        public void SetForwardSpeedMax(float speedMax) => _forwardSpeedMax = speedMax;
     }
 
     public interface IPlayerMoveSystem : IMoveSystem, IUpdatable
     {
-        event Action Moving;
-        event Action Standing;
-        float HorizontalDelta { set; }
+        void MoveHorizontal(float delta);
         void Accelerate(float deltaTime);
         void Decelerate(float deltaTime);
+        /// <param name="acceleraion">measures from 0 to 1</param>
+        void SetAcceleration(float acceleraion);
+        void SetForwardSpeedMax(float speedMax);
     }
 }
