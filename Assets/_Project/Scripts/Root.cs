@@ -59,7 +59,8 @@ namespace CookRun
                 (PlayerFinishAutoPilotDataSO.Instance.Data, moveSystem, rotateSystem, model);
 
             playerPresenter = new PlayerPresenter
-                (model, playerRootView, animationSystem, finishAutoPilot, moveSystem, rotateSystem);
+                (model, playerRootView, animationSystem, finishAutoPilot, 
+                moveSystem, rotateSystem);
 
             playerInputRouter = new PlayerInputRouter
                 (slidingArea, moveSystem, rotateSystem, PlayerConfigDataSO.Instance.Data);

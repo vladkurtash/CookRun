@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerFinishAutoPilotData
   m_EditorClassIdentifier: 
   _data:
-    speedForwardMax: 0.3
+    speedForwardMax: 0.5
     speedHorizontalMax: 3
     rotationSpeed: 300

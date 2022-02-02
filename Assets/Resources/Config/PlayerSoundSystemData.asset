@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd074183a70bffc42948be8ac6a52204, type: 3}
+  m_Name: PlayerSoundSystemData
+  m_EditorClassIdentifier: 
+  _data:
+    swingClips:
+    - {fileID: 8300000, guid: 211b87eb3e9795b4ab80d4e9a1d8124f, type: 3}
+    - {fileID: 8300000, guid: 7e385a553a7ffe54fbce360ddea3257e, type: 3}
+    - {fileID: 8300000, guid: 5d65c500733b249438c4b1712085fcc7, type: 3}
+    pitch: 1
+    volume: 0.5
