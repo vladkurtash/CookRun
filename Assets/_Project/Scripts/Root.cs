@@ -17,6 +17,10 @@ namespace CookRun
         private PlayerPresenter playerPresenter = null;
         private PlayerInputRouter playerInputRouter = null;
 
+#if UNITY_EDITOR
+        [SerializeField] private bool activePlayerInput = true;
+#endif
+
         private void Awake()
         {
             playerRootView = FindObjectOfType<PlayerRootView>();
@@ -30,28 +34,35 @@ namespace CookRun
         private void OnEnable()
         {
             playerPresenter.OnEnable();
+            playerPresenter.RoadFinishEntered += OnPlayerEnteredRoadFinish;
+            playerPresenter.LevelFinishEntered += OnPlayerEnteredLevelFinish;
+
+#if UNITY_EDITOR
+            if (!activePlayerInput)
+                return;
+#endif
             playerInputRouter.OnEnable();
         }
 
         private void SetupPlayer()
         {
             var model = new PlayerModel(PlayerConfigDataSO.Instance.Data);
-            var playerMovementSystem = SetupPlayerMovementSystem(model);
-            PlayerAnimationSystemDataSO.Instance.Data.Setup();
-            var animationSystem = new PlayerAnimationSystem(PlayerAnimationSystemDataSO.Instance.Data, playerRootView.Animator);
 
-            playerPresenter = new PlayerPresenter(model, playerRootView, playerMovementSystem, animationSystem);
-
-            playerInputRouter = new PlayerInputRouter(slidingArea, playerMovementSystem);
-        }
-
-        private PlayerMovementSystem SetupPlayerMovementSystem(PlayerModel model)
-        {
             var moveSystem = new PlayerMoveSystem(PlayerMoveSystemDataSO.Instance.Data, model);
             var rotateSystem = new PlayerRotateSystem(PlayerRotateSystemDataSO.Instance.Data, model);
-            var movementSystem = new PlayerMovementSystem(moveSystem, rotateSystem);
 
-            return movementSystem;
+            PlayerAnimationSystemDataSO.Instance.Data.Setup();
+            var animationSystem = new PlayerAnimationSystem
+                (PlayerAnimationSystemDataSO.Instance.Data, playerRootView.Animator);
+                
+            var finishAutoPilot = new PlayerFinishAutoPilot
+                (PlayerFinishAutoPilotDataSO.Instance.Data, moveSystem, rotateSystem, model);
+
+            playerPresenter = new PlayerPresenter
+                (model, playerRootView, animationSystem, finishAutoPilot, moveSystem, rotateSystem);
+
+            playerInputRouter = new PlayerInputRouter
+                (slidingArea, moveSystem, rotateSystem, PlayerConfigDataSO.Instance.Data);
         }
 
         private void SetupMainCamera()
@@ -63,7 +74,9 @@ namespace CookRun
         private void OnDisable()
         {
             playerPresenter.OnDisable();
-            playerInputRouter.OnEnable();
+            playerInputRouter.OnDisable();
+            playerPresenter.RoadFinishEntered -= OnPlayerEnteredRoadFinish;
+            playerPresenter.LevelFinishEntered -= OnPlayerEnteredLevelFinish;
         }
 
         private void Update()
@@ -75,6 +88,16 @@ namespace CookRun
         private void SetDefaultFrameRate()
         {
             //Application.targetFrameRate = Config.Instance.defaultFrameRate;
+        }
+
+        private void OnPlayerEnteredRoadFinish()
+        {
+            playerInputRouter.OnDisable();
+        }
+
+        private void OnPlayerEnteredLevelFinish()
+        {
+            //Activate GUI
         }
     }
 }

@@ -10,13 +10,21 @@ namespace CookRun.Presenter
 {
     public class PlayerPresenter : APresenter<PlayerModel, PlayerRootView>, IPlayerPresenter
     {
-        private readonly IMovementSystem _movementSystem;
+        private readonly IMoveSystem _moveSystem;
+        private readonly IRotateSystem _rotateSystem;
         private readonly IPlayerAnimationSystem _animationSystem;
+        private readonly IPlayerFinishAutoPilot _finishAutoPilot;
+        public event Action RoadFinishEntered;
+        public event Action LevelFinishEntered;
 
-        public PlayerPresenter(PlayerModel model, PlayerRootView view, IMovementSystem movementSystem, IPlayerAnimationSystem animationSystem) : base(model, view)
+        public PlayerPresenter(PlayerModel model, PlayerRootView view, 
+            IPlayerAnimationSystem animationSystem, IPlayerFinishAutoPilot finishAutoPilot, 
+            IMoveSystem moveSystem, IRotateSystem rotateSystem) : base(model, view)
         {
-            _movementSystem = movementSystem;
+            _moveSystem = moveSystem;
+            _rotateSystem = rotateSystem;
             _animationSystem = animationSystem;
+            _finishAutoPilot = finishAutoPilot;
             SyncModelWithView();
         }
 
@@ -38,10 +46,11 @@ namespace CookRun.Presenter
             base.OnEnable();
             _model.Moved += OnMoved;
             _model.Rotated += OnRotated;
-            _movementSystem.Standing += _animationSystem.Stand;
-            _movementSystem.Moving += _animationSystem.Run;
+            _moveSystem.Standing += _animationSystem.Stand;
+            _moveSystem.Moving += _animationSystem.Run;
             _view.KnifeView.TriggerEnter += OnKnifeTriggerEnterReact;
             _view.LookView.RaycastHit += OnLookRaycastHitReact;
+            _view.BodyView.TriggerEnter += OnBodyTriggerEnterReact;
         }
 
         public override void OnDisable()
@@ -49,25 +58,28 @@ namespace CookRun.Presenter
             base.OnDisable();
             _model.Moved -= OnMoved;
             _model.Rotated -= OnRotated;
-            _movementSystem.Standing -= _animationSystem.Stand;
-            _movementSystem.Moving -= _animationSystem.Run;
+            _moveSystem.Standing -= _animationSystem.Stand;
+            _moveSystem.Moving -= _animationSystem.Run;
             _view.KnifeView.TriggerEnter -= OnKnifeTriggerEnterReact;
             _view.LookView.RaycastHit -= OnLookRaycastHitReact;
+            _view.BodyView.TriggerEnter -= OnBodyTriggerEnterReact;
         }
 
         public override void UpdateLocal(float deltaTime)
         {
-            _movementSystem.UpdateLocal(deltaTime);
+            _moveSystem.UpdateLocal(deltaTime);
+            _rotateSystem.UpdateLocal(deltaTime);
+            _finishAutoPilot.UpdateLocal(deltaTime);
         }
 
         public void OnMoved()
         {
-            _view.Move(_model.Position);
+            _view.BodyView.Move(_model.Position);
         }
 
         public void OnRotated()
         {
-            _view.Rotate(_model.Rotataion);
+            _view.BodyView.Rotate(_model.Rotataion);
         }
 
         private void OnKnifeTriggerEnterReact(Collider collider)
@@ -94,6 +106,22 @@ namespace CookRun.Presenter
                 _animationSystem.Hit();
                 if(raycastHit.distance <= hitDistance / 2)
                     SliceObject(raycastHit.collider);
+            }
+        }
+
+        private void OnBodyTriggerEnterReact(Collider collider)
+        {
+            if(collider.tag == "RoadFinish")
+            {
+                RoadFinishEntered?.Invoke();
+                _finishAutoPilot.Perform();
+            }
+
+            if(collider.tag == "LevelFinish")
+            {
+                LevelFinishEntered?.Invoke();
+                _finishAutoPilot.StopMovementAndTurn180();
+                _animationSystem.Dance();
             }
         }
     }
