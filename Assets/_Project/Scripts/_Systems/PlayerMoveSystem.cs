@@ -9,10 +9,12 @@ namespace CookRun.Systems
     {
         private float _acceleration = 0.0f;
         private float _forwardSpeedMax = 0.0f;
+        private float _thresholdPositionX = 0.0f;
 
         public PlayerMoveSystem(PlayerMoveSystemData systemData, IMove moveData) : base(systemData, moveData)
         {
             _forwardSpeedMax = systemData.speedForwardMax;
+            _thresholdPositionX = 4.5f;
         }
 
         public event Action Moving;
@@ -32,9 +34,20 @@ namespace CookRun.Systems
                 Standing?.Invoke();
             else
                 Moving?.Invoke();
-
+            
+            EnsureThresholdIsNotExceeded();
             _modelData.ApplyChangePosition(_delta.Value);
             _delta.Value = Vector3.zero;
+        }
+
+        private void EnsureThresholdIsNotExceeded()
+        {
+            if (Mathf.Abs(_modelData.Position.x + _delta.Value.x) > _thresholdPositionX)
+            {
+                float sumX = _modelData.Position.x + _delta.Value.x;
+                float remainder = sumX - _thresholdPositionX * Mathf.Sign(sumX);
+                _delta.X -= remainder;
+            }
         }
 
         private void MoveForward() =>

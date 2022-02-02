@@ -35,6 +35,6 @@ namespace CookRun.Model
 
     public interface IPlayerRotate : IRotate
     {
-        float HorizontalRotationAxis { get; }
+        
     }
 }

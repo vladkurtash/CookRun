@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using CookRun.Core;
 using CookRun.Model;
@@ -12,12 +13,13 @@ namespace CookRun.Systems
         void Stop();
     }
 
-    public interface IMoveSystem : ISystem
+    public interface IMoveSystem : ISystem, IUpdatable
     {
-
+        event Action Moving;
+        event Action Standing;
     }
 
-    public interface IRotateSystem : ISystem
+    public interface IRotateSystem : ISystem, IUpdatable
     {
 
     }
