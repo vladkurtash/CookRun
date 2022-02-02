@@ -19,7 +19,7 @@ namespace CookRun.View
         {
             RaycastHit raycastHit = default;
             bool hit = Physics.BoxCast(transform.position, transform.lossyScale / 2,
-                transform.forward, out raycastHit, transform.rotation, sightDistance);
+                Vector3.forward, out raycastHit, transform.rotation, sightDistance);
 
             if (hit)
             {
@@ -30,20 +30,20 @@ namespace CookRun.View
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
-            bool hit = Physics.BoxCast(transform.position, transform.lossyScale / 2, transform.forward,
+            bool hit = Physics.BoxCast(transform.position, transform.lossyScale / 2, Vector3.forward,
                 out RaycastHit raycastHit, transform.rotation, sightDistance);
             if (hit)
             {
                 Gizmos.color = Color.red;
-                Gizmos.DrawRay(transform.position, transform.forward * raycastHit.distance);
-                Gizmos.DrawWireCube(transform.position + transform.forward * raycastHit.distance,
+                Gizmos.DrawRay(transform.position, Vector3.forward * raycastHit.distance);
+                Gizmos.DrawWireCube(transform.position + Vector3.forward * raycastHit.distance,
                     transform.lossyScale);
             }
             else
             {
                 Gizmos.color = Color.green;
-                Gizmos.DrawRay(transform.position, transform.forward * sightDistance);
-                Gizmos.DrawWireCube(transform.position + transform.forward * sightDistance,
+                Gizmos.DrawRay(transform.position, Vector3.forward * sightDistance);
+                Gizmos.DrawWireCube(transform.position + Vector3.forward * sightDistance,
                     transform.lossyScale);
             }
         }
