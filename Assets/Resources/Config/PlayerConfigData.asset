@@ -17,3 +17,5 @@ MonoBehaviour:
     horizontalRotationThreshold: {x: -60, y: 60}
     sightDistance: 3
     hitDistance: 2
+    moveSensivity: 10
+    rotateSensivity: 300

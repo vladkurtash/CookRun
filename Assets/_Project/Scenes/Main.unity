@@ -127,6 +127,12 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 7931684570405470938}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1158452176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7931684571053961134, guid: 3579ae7e31c2f9c468ba593bcfcec5ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 7931684570405470938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4265606335487967470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,6 +288,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 468824458, guid: 15a9c20e41b67324bba650cf7706fd54, type: 3}
+      propertyPath: m_Sources.Array.data[0].sourceTransform
+      value: 
+      objectReference: {fileID: 1158452176}
     - target: {fileID: 7422571214421857496, guid: 15a9c20e41b67324bba650cf7706fd54,
         type: 3}
       propertyPath: m_RootOrder
