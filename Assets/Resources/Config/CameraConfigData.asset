@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _alignment:
-      positionOffset: {x: 0, y: 0, z: 0}
-      targetRotation: {x: 0, y: 0, z: 0}
-      rotationSpeed: 0
-      movementSpeed: 0
+      positionOffset: {x: 0, y: 2.5, z: -5}
+      targetRotation: {x: 15, y: 0, z: 0}
+      rotationSpeed: 1
+      movementSpeed: 1
     _follow:
       movementSpeed: 1
       positionOffset: {x: 0, y: 10, z: -9.44}

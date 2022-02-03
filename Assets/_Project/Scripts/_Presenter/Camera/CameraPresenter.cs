@@ -16,7 +16,6 @@ namespace CookRun.Presenter
             base.Awake();
 
             _localState = State.Enable;
-            _phase = Phase.Follow;
         }
 
         private void Start()
@@ -33,6 +32,9 @@ namespace CookRun.Presenter
             Follow,
             Align
         }
+
+        public void FollowTarget() => _phase = Phase.Follow;
+        public void AlignToTarget() => _phase = Phase.Align;
 
         protected override void LateUpdate()
         {
