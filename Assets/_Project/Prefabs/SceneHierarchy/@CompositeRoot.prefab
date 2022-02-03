@@ -46,3 +46,8 @@ MonoBehaviour:
   playerRootView: {fileID: 0}
   slidingArea: {fileID: 0}
   cameraPresenter: {fileID: 0}
+  finishConfetti: {fileID: 0}
+  mainWindow: {fileID: 0}
+  inGameWindow: {fileID: 0}
+  gameCompleteWindow: {fileID: 0}
+  activePlayerInput: 1

@@ -2,9 +2,11 @@ using UnityEngine;
 using CookRun.Model;
 using CookRun.View;
 using CookRun.Presenter;
+using CookRun.Presenter.GUI;
 using CookRun.Systems;
 using CookRun.Input;
 using CookRun.Core;
+using UnityEngine.SceneManagement;
 
 namespace CookRun
 {
@@ -14,6 +16,12 @@ namespace CookRun
         [SerializeField] private PlayerRootView playerRootView;
         [SerializeField] private SlidingArea slidingArea;
         [SerializeField] private CameraPresenter cameraPresenter;
+        [SerializeField] private GameObject finishConfetti;
+
+        [SerializeField] private MainMenuWindowPresenter mainWindow;
+        [SerializeField] private InGameWindowPresenter inGameWindow;
+        [SerializeField] private GameCompleteWindowPresenter gameCompleteWindow;
+        
         private PlayerPresenter playerPresenter = null;
         private PlayerInputRouter playerInputRouter = null;
 
@@ -26,6 +34,9 @@ namespace CookRun
             playerRootView = FindObjectOfType<PlayerRootView>();
             slidingArea = FindObjectOfType<SlidingArea>();
             cameraPresenter = FindObjectOfType<CameraPresenter>();
+
+            mainWindow = FindObjectOfType<MainMenuWindowPresenter>();
+            finishConfetti = GameObject.FindGameObjectWithTag("FinishConfetti");
 
             SetupPlayer();
             SetupMainCamera();
@@ -42,6 +53,8 @@ namespace CookRun
                 return;
 #endif
             playerInputRouter.OnEnable();
+
+            SetupGUI();
         }
 
         private void SetupPlayer()
@@ -64,6 +77,21 @@ namespace CookRun
 
             playerInputRouter = new PlayerInputRouter
                 (slidingArea, moveSystem, rotateSystem, PlayerConfigDataSO.Instance.Data);
+        }
+
+        private void SetupGUI()
+        {
+            mainWindow.Show(OnStartClick);
+        }
+
+        private void OnStartClick()
+        {
+            inGameWindow.Show(LoadNextLevel);
+        }
+
+        private void LoadNextLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void SetupMainCamera()
@@ -100,7 +128,8 @@ namespace CookRun
         private void OnPlayerEnteredLevelFinish()
         {
             cameraPresenter.AlignToTarget();
-            //Activate GUI
+            finishConfetti.transform.GetChild(0).gameObject.SetActive(true);
+            gameCompleteWindow.Show(LoadNextLevel);
         }
     }
 }

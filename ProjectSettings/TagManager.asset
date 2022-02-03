@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RoadFinish
   - LevelFinish
+  - FinishConfetti
   layers:
   - Default
   - TransparentFX
