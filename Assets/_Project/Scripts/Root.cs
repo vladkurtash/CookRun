@@ -70,6 +70,7 @@ namespace CookRun
         {
             cameraPresenter.Target = playerRootView.transform;
             cameraPresenter.ConfigData = CameraConfigDataSO.Instance.Data;
+            cameraPresenter.FollowTarget();
         }
 
         private void OnDisable()
@@ -98,6 +99,7 @@ namespace CookRun
 
         private void OnPlayerEnteredLevelFinish()
         {
+            cameraPresenter.AlignToTarget();
             //Activate GUI
         }
     }
