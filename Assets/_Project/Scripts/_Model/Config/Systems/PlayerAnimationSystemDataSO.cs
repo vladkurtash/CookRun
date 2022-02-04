@@ -31,8 +31,6 @@ namespace CookRun.Model
         [SerializeField] public string dieString = "";
         [SerializeField] public string danceString = "";
 
-        private bool _hashed = false;
-
         [HideInInspector] public int idleHash = 0;
         [HideInInspector] public int runHash = 0;
         [HideInInspector] public int hitHash = 0;
@@ -46,8 +44,6 @@ namespace CookRun.Model
             hitHash = Animator.StringToHash(hitString);
             dieHash = Animator.StringToHash(dieString);
             danceHash = Animator.StringToHash(danceString);
-
-            _hashed = true;
         }
     }
 }

@@ -40,6 +40,8 @@ namespace CookRun
 
             SetupPlayer();
             SetupMainCamera();
+            
+            SetDefaultFrameRate();
         }
 
         private void OnEnable()
@@ -117,7 +119,7 @@ namespace CookRun
 
         private void SetDefaultFrameRate()
         {
-            //Application.targetFrameRate = Config.Instance.defaultFrameRate;
+            Application.targetFrameRate = 60;
         }
 
         private void OnPlayerEnteredRoadFinish()

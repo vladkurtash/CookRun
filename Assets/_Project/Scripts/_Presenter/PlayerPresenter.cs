@@ -48,7 +48,6 @@ namespace CookRun.Presenter
             _model.Rotated += OnRotated;
             _moveSystem.Standing += _animationSystem.Stand;
             _moveSystem.Moving += _animationSystem.Run;
-            _view.KnifeView.TriggerEnter += OnKnifeTriggerEnterReact;
             _view.LookView.RaycastHit += OnLookRaycastHitReact;
             _view.BodyView.TriggerEnter += OnBodyTriggerEnterReact;
         }
@@ -60,7 +59,6 @@ namespace CookRun.Presenter
             _model.Rotated -= OnRotated;
             _moveSystem.Standing -= _animationSystem.Stand;
             _moveSystem.Moving -= _animationSystem.Run;
-            _view.KnifeView.TriggerEnter -= OnKnifeTriggerEnterReact;
             _view.LookView.RaycastHit -= OnLookRaycastHitReact;
             _view.BodyView.TriggerEnter -= OnBodyTriggerEnterReact;
         }
@@ -80,14 +78,6 @@ namespace CookRun.Presenter
         public void OnRotated()
         {
             _view.BodyView.Rotate(_model.Rotataion);
-        }
-
-        private void OnKnifeTriggerEnterReact(Collider collider)
-        {
-            // int inputLayer = collider.gameObject.layer;
-
-            // if (inputLayer == (int)Layer.Sliceable)
-            //     Slice(collider);
         }
 
         private void SliceObject(Collider collider)

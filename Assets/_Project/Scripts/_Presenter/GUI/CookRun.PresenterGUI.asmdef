@@ -1,5 +1,5 @@
 {
-    "name": "CookRun.Presenter.GUI",
+    "name": "CookRun.PresenterGUI",
     "references": [
         "GUID:432ed3686a53aec45a1296a3d54842df",
         "GUID:506f764aae3e1834e9f3ff5b5f0f74e5"

@@ -75,7 +75,6 @@ namespace CookRun.Systems
         {
             float currentX = _moveData.Position.x;
             float delta = Mathf.MoveTowards(0.0f, currentX, _systemData.speedHorizontalMax * deltaTime);
-            // float delta = Mathf.Lerp(0.0f, currentX, _systemData.speedHorizontalMax * deltaTime);
 
             _moveSystem.MoveHorizontal(-delta);
         }
